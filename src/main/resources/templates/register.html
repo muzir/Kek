@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="shortcut icon" th:href="@{/img/favicon.png}" />
+
+<title>Register Page| Kek - Simple TO-DO Web Application</title>
+
+<!-- Bootstrap CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<!-- bootstrap theme -->
+<link th:href="@{/css/bootstrap-theme.css}" rel="stylesheet" />
+<!--external css-->
+<!-- font icon -->
+<link th:href="@{/css/elegant-icons-style.css}" rel="stylesheet" />
+<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+<!-- Custom styles -->
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/css/register.css}" rel="stylesheet" />
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+<!--[if lt IE 9]>
+    <script src="/js/html5shiv.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-img3-body">
+	<div class="container">
+		<form class="form-horizontal" role="form" th:action="@{/register}"
+			th:method="post">
+			<h2>Registration Form</h2>
+			<div class="form-group">
+				<label for="firstName" class="col-sm-3 control-label">User
+					Name</label>
+				<div class="col-sm-9">
+					<input type="text" id="userName" placeholder="User Name"
+						name="userName" class="form-control"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="email" class="col-sm-3 control-label">Email</label>
+				<div class="col-sm-9">
+					<input type="email" id="email" placeholder="Email" name="email"
+						class="form-control"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password" class="col-sm-3 control-label">Password</label>
+				<div class="col-sm-9">
+					<input type="password" id="password" placeholder="Password"
+						name="password" class="form-control"></input>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-9 col-sm-offset-3">
+					<button type="submit" class="btn btn-primary btn-block">Register</button>
+				</div>
+			</div>
+		</form>
+		<!-- /form -->
+	</div>
+	<!-- ./container -->
+</body>
+</html>

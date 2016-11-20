@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Bootstrap CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/todo.css}" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="@{/home}">KEK</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a th:href="@{/home}">Home</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a th:href="@{/logout}"><span
+							class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="todolist not-done">
+					<h1>Todos</h1>
+					<form th:action="@{/createTodo}" th:method="POST">
+						<input type="text" name="todoText" class="form-control add-todo"
+							placeholder="Add todo" />
+						<hr></hr>
+						<button type="submit" id="createTodo" class="btn btn-success">Add
+							Todo</button>
+					</form>
+					<hr></hr>
+					<button id="checkAll" class="btn btn-success">Mark all as
+						done</button>
+					<hr>
+					</hr>
+					<ul th:each="todo : ${todos}" id="sortable" class="list-unstyled">
+						<li class="ui-state-default">
+							<div class="checkbox">
+								<label> <input th:text="${todo.description}"
+									type="checkbox" value="" />
+								</label>
+							</div>
+						</li>
+
+					</ul>
+					<!-- 					<ul id="sortable" class="list-unstyled"> -->
+					<!-- 						<li class="ui-state-default"> -->
+					<!-- 							<div class="checkbox"> -->
+					<!-- 								<label> <input type="checkbox" value="" />Take out the -->
+					<!-- 									trash -->
+					<!-- 								</label> -->
+					<!-- 							</div> -->
+					<!-- 						</li> -->
+					<!-- 						<li class="ui-state-default"> -->
+					<!-- 							<div class="checkbox"> -->
+					<!-- 								<label> <input type="checkbox" value="" />Buy bread -->
+					<!-- 								</label> -->
+					<!-- 							</div> -->
+					<!-- 						</li> -->
+					<!-- 						<li class="ui-state-default"> -->
+					<!-- 							<div class="checkbox"> -->
+					<!-- 								<label> <input type="checkbox" value="" />Teach -->
+					<!-- 									penguins to fly -->
+					<!-- 								</label> -->
+					<!-- 							</div> -->
+					<!-- 						</li> -->
+					<!-- 					</ul> -->
+					<div class="todo-footer">
+						<strong><span class="count-todos"></span></strong> Items Left : <label
+							th:text="${todos.size()}"> </label>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="todolist">
+					<h1>Already Done</h1>
+					<ul id="done-items" class="list-unstyled">
+						<!-- 						<li>Some item -->
+						<!-- 							<button class="remove-item btn btn-default btn-xs pull-right"> -->
+						<!-- 								<span class="glyphicon glyphicon-remove"></span> -->
+						<!-- 							</button> -->
+						<!-- 						</li> -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/js/jquery.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/todo.js}"></script>
+</body>
+</html>
