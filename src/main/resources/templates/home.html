@@ -36,7 +36,7 @@
 					<h1>Todos</h1>
 					<form th:action="@{/createTodo}" th:method="POST">
 						<input type="text" name="todoText" class="form-control add-todo"
-							placeholder="Add todo" />
+							placeholder="Add todo" th:required="required"/>
 						<hr></hr>
 						<button type="submit" id="createTodo" class="btn btn-success">Add
 							Todo</button>

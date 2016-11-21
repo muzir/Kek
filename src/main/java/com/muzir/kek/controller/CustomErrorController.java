@@ -40,8 +40,8 @@ public class CustomErrorController implements ErrorController {
 	}
 
 	private String get404Response() {
-		return "<!DOCTYPE html><html><head><title>ScoreLeague.net - Source not found!</title><link href=\"https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css\" rel=\"stylesheet\" />"
-				+ "<script type=\"text/javascript\">window.setTimeout(function() { window.location.href = '/'; }, 10000);</script></head>"
+		return "<!DOCTYPE html><html><head><title>KEK-TODO - Source not found!</title><link href=\"https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css\" rel=\"stylesheet\" />"
+				+ "</head>"
 				+ "<body><br /><br /><div class=\"container\"><div class=\"row\"><div class=\"panel panel-warning\"><div class=\"panel-heading\"><h3 class=\"panel-title\">404 - Source not found!</h3></div>"
 				+ "<div class=\"panel-body\">The requested page or source could not be found. Now, you are redirecting to main page or click <a href=\"javascript:history.back()\">here</a> to go back and try again.</div>"
 				+ "</div></div></div></body></html>";
@@ -49,7 +49,7 @@ public class CustomErrorController implements ErrorController {
 
 	private String getDefaultResponse(int status) {
 		return "<!DOCTYPE html><html><head><title>Redirecting...</title>" //
-				+ "<script type=\"text/javascript\">window.setTimeout(function() { window.location.href = '/'; }, 50);</script></head>" //
+				+ "</head>" //
 				+ "<body style=\"font-size: 8px; color: #cccccc;\">HTTP " + status + "</body></html>";
 	}
 }
