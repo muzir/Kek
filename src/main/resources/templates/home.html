@@ -20,7 +20,8 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a th:href="@{/home}">Home</a></li>
 					<li><a href="#">About</a></li>
-					<li><a href="https://github.com/muzir/Kek/issues" target="_blank">Report Issue</a></li>
+					<li><a href="https://github.com/muzir/Kek/issues"
+						target="_blank">Report Issue</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a th:href="@{/logout}"><span
@@ -36,48 +37,28 @@
 					<h1>Todos</h1>
 					<form th:action="@{/createTodo}" th:method="POST">
 						<input type="text" name="todoText" class="form-control add-todo"
-							placeholder="Add todo" th:required="required"/>
+							placeholder="Add todo" th:required="required" />
 						<hr></hr>
 						<button type="submit" id="createTodo" class="btn btn-success">Add
 							Todo</button>
 					</form>
 					<hr></hr>
-					<button id="checkAll" class="btn btn-success">Mark all as
-						done</button>
-					<hr>
-					</hr>
-					<ul th:each="todo : ${todos}" id="sortable" class="list-unstyled">
-						<li class="ui-state-default">
-							<div class="checkbox">
-								<label> <input th:text="${todo.description}"
-									type="checkbox" value="" />
-								</label>
-							</div>
-						</li>
+					<form th:action="@{/markAsDone}" th:method="POST">
+						<button id="checkAll" class="btn btn-success">Mark as
+							done</button>
+						<hr>
+						</hr>
+						<ul th:each="todo : ${todos}" id="sortable" class="list-unstyled">
+							<li class="ui-state-default">
+								<div class="checkbox">
+									<label> <input th:text="${todo.description}"
+										type="checkbox" th:value="${todo.id}" name="markAsDoneId" />
+									</label>
+								</div>
+							</li>
 
-					</ul>
-					<!-- 					<ul id="sortable" class="list-unstyled"> -->
-					<!-- 						<li class="ui-state-default"> -->
-					<!-- 							<div class="checkbox"> -->
-					<!-- 								<label> <input type="checkbox" value="" />Take out the -->
-					<!-- 									trash -->
-					<!-- 								</label> -->
-					<!-- 							</div> -->
-					<!-- 						</li> -->
-					<!-- 						<li class="ui-state-default"> -->
-					<!-- 							<div class="checkbox"> -->
-					<!-- 								<label> <input type="checkbox" value="" />Buy bread -->
-					<!-- 								</label> -->
-					<!-- 							</div> -->
-					<!-- 						</li> -->
-					<!-- 						<li class="ui-state-default"> -->
-					<!-- 							<div class="checkbox"> -->
-					<!-- 								<label> <input type="checkbox" value="" />Teach -->
-					<!-- 									penguins to fly -->
-					<!-- 								</label> -->
-					<!-- 							</div> -->
-					<!-- 						</li> -->
-					<!-- 					</ul> -->
+						</ul>
+					</form>
 					<div class="todo-footer">
 						<strong><span class="count-todos"></span></strong> Items Left : <label
 							th:text="${todos.size()}"> </label>

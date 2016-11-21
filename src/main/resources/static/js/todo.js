@@ -4,9 +4,9 @@
 //countTodos();
 
 // all done btn
-$("#checkAll").click(function(){
-    AllDone();
-});
+//$("#checkAll").click(function(){
+//    AllDone();
+//});
 
 //create todo
 //$('.add-todo').on('keypress',function (e) {
@@ -22,19 +22,19 @@ $("#checkAll").click(function(){
 //      }
 //});
 // mark task as done
-$('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
-    if($(this).prop('checked')){
-        var doneItem = $(this).parent().parent().find('label').text();
-        $(this).parent().parent().parent().addClass('remove');
-        done(doneItem);
-        //countTodos();
-    }
-});
+//$('.todolist').on('change','#sortable li input[type="checkbox"]',function(){
+//    if($(this).prop('checked')){
+//        var doneItem = $(this).parent().parent().find('label').text();
+//        $(this).parent().parent().parent().addClass('remove');
+//        done(doneItem);
+//        //countTodos();
+//    }
+//});
 
 //delete done task from "already done"
-$('.todolist').on('click','.remove-item',function(){
-    removeItem(this);
-});
+//$('.todolist').on('click','.remove-item',function(){
+//    removeItem(this);
+//});
 
 // count tasks
 //function countTodos(){
@@ -50,32 +50,32 @@ $('.todolist').on('click','.remove-item',function(){
 //}
 
 //mark task as done
-function done(doneItem){
-    var done = doneItem;
-    var markup = '<li>'+ done +'<button class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>';
-    $('#done-items').append(markup);
-    $('.remove').remove();
-}
+//function done(doneItem){
+//    var done = doneItem;
+//    var markup = '<li>'+ done +'<button class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>';
+//    $('#done-items').append(markup);
+//    $('.remove').remove();
+//}
 
 //mark all tasks as done
-function AllDone(){
-    var myArray = [];
-
-    $('#sortable li').each( function() {
-         myArray.push($(this).text());   
-    });
-    
-    // add to done
-    for (i = 0; i < myArray.length; i++) {
-        $('#done-items').append('<li>' + myArray[i] + '<button class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>');
-    }
-    
-    // myArray
-    $('#sortable li').remove();
-    //countTodos();
-}
+//function AllDone(){
+//    var myArray = [];
+//
+//    $('#sortable li').each( function() {
+//         myArray.push($(this).text());   
+//    });
+//    
+//    // add to done
+//    for (i = 0; i < myArray.length; i++) {
+//        $('#done-items').append('<li>' + myArray[i] + '<button class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>');
+//    }
+//    
+//    // myArray
+//    $('#sortable li').remove();
+//    //countTodos();
+//}
 
 //remove done task from list
-function removeItem(element){
-    $(element).parent().remove();
-}
+//function removeItem(element){
+//    $(element).parent().remove();
+//}

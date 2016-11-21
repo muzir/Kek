@@ -2,6 +2,7 @@ package com.muzir.kek.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -40,13 +41,20 @@ public class HomeController {
 	@RequestMapping(value = "/createTodo", method = RequestMethod.POST)
 	public String createTodo(HttpServletRequest request, Model model) {
 		String description = request.getParameter("todoText");
-		System.out.println("CreateTodo text:" + description);
 		User user = sessionService.getUser(request.getSession());
 		Todo todo = new Todo();
 		todo.setCreationTs(new Date());
 		todo.setUser(user);
 		todo.setDescription(description);
 		todoService.saveTodo(todo);
+		return "redirect:/home";
+	}
+
+	@RequestMapping(value = "/markAsDone", method = RequestMethod.POST)
+	public String markAsDone(HttpServletRequest request, Model model) {
+		User user = sessionService.getUser(request.getSession());
+		String[] markAsDoneIds = request.getParameterValues("markAsDoneId");
+		System.out.println("markAsDoneIds:" + markAsDoneIds.length);
 		return "redirect:/home";
 	}
 }
