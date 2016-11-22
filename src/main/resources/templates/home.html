@@ -67,7 +67,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="todolist">
-					<h1>Already Done</h1>
+					<h1>Done</h1>
 					<ul th:each="done : ${dones}" id="done-items" class="list-unstyled">
 						<form th:action="@{/deleteDone}" th:method="POST">
 							<li><p th:text="${done.description}"></p>
