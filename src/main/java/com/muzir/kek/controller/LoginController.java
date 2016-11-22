@@ -68,12 +68,16 @@ public class LoginController {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
+		if (loginService.isUserExist(userName)) {
+			redirectAttributes.addFlashAttribute("message",
+					new Message(MessageType.ERROR, "This user name is already used please select another one!"));
+			return "redirect:/register";
+		}
 		User user = new User();
 		user.setName(userName);
 		user.setEmail(email);
 		user.setPasswordSha256(password);
 		user.setCreationTs(new Date());
-		System.out.println("register POST");
 		User savedUser = loginService.createUser(user);
 		if (savedUser != null) {
 			redirectAttributes.addFlashAttribute("message", new Message(MessageType.SUCCESSFUL,

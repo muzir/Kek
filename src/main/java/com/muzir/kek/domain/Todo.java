@@ -25,6 +25,8 @@ public class Todo {
 	private Date creationTs;
 	@Column(name = "description")
 	private String description;
+	@Column(name = "isDone")
+	private String isDone;
 	@ManyToOne
 	private User user;
 
@@ -55,6 +57,14 @@ public class Todo {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public String getIsDone() {
+		return isDone;
+	}
+
+	public void setIsDone(String isDone) {
+		this.isDone = isDone;
+	}
 
 	@Override
 	public int hashCode() {
@@ -63,6 +73,7 @@ public class Todo {
 		result = prime * result + ((creationTs == null) ? 0 : creationTs.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((isDone == null) ? 0 : isDone.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
@@ -91,6 +102,11 @@ public class Todo {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (isDone == null) {
+			if (other.isDone != null)
+				return false;
+		} else if (!isDone.equals(other.isDone))
+			return false;
 		if (user == null) {
 			if (other.user != null)
 				return false;
@@ -101,8 +117,8 @@ public class Todo {
 
 	@Override
 	public String toString() {
-		return "Todo [id=" + id + ", creationTs=" + creationTs + ", description=" + description + ", user=" + user.getName()
-				+ "]";
+		return "Todo [id=" + id + ", creationTs=" + creationTs + ", description=" + description + ", isDone=" + isDone
+				+ ", user=" + user.getName() + "]";
 	}
 
 }

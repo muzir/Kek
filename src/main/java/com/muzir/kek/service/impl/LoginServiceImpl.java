@@ -33,4 +33,9 @@ public class LoginServiceImpl implements LoginService {
 		Optional<User> userOptional = userRepository.findByNameAndPasswordSha256(userName, hashedPassword);
 		return userOptional;
 	}
+
+	public boolean isUserExist(String userName) {
+		Optional<User> optionalUser=userRepository.findByName(userName);
+		return optionalUser.isPresent();
+	}
 }

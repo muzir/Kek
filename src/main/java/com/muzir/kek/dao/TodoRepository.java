@@ -1,6 +1,9 @@
 package com.muzir.kek.dao;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -12,5 +15,10 @@ import com.muzir.kek.domain.User;
  *
  */
 public interface TodoRepository extends CrudRepository<Todo, Long> {
-	List<Todo> findByUser(User user);
+	List<Todo> findByUserAndIsDone(User user, String isDone);
+
+	Optional<Todo> findByUserAndId(User user, Long todoId);
+
+	@Transactional
+	void deleteByIdAndUser(Long todoId, User user);
 }

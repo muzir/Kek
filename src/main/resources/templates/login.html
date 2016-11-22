@@ -36,23 +36,25 @@
 				<div class="input-group">
 					<span class="input-group-addon"><i class="icon_profile"></i></span>
 					<input name="userName" type="text" class="form-control"
-						placeholder="Username" th:required="required" ></input>
+						placeholder="Username" th:required="required"></input>
 				</div>
 				<div class="input-group">
 					<span class="input-group-addon"><i class="icon_key_alt"></i></span>
 					<input name="password" type="password" class="form-control"
-						placeholder="Password" th:required="required" ></input>
+						placeholder="Password" th:required="required"></input>
 				</div>
 				<button id="login" class="btn btn-primary btn-lg btn-block"
 					type="submit">Login</button>
 				<hr></hr>
 				<a class="btn btn-primary btn-lg btn-block" href="register">Register</a>
-				<div th:if="${message != null}">
-					<div class="alert alert-${message.type.value} alert-dismissable"
-						style="margin-top: 6px;">
-						<a class="panel-close close" th:text="${message.value}"
-							data-dismiss="alert">×</a> <i class="fa fa-info"></i>
-					</div>
+			</div>
+			<div th:if="${message != null}">
+				<div th:fragment="alert (type, message)"
+					class="alert alert-dismissable"
+					th:classappend="'alert-' + ${message.type.value}">
+					<button type="button" class="close" data-dismiss="alert"
+						aria-hidden="true">&times;</button>
+					<span th:text="${message.value}">Test</span>
 				</div>
 			</div>
 		</form>

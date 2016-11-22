@@ -11,6 +11,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import com.muzir.kek.dao.TodoRepository;
 import com.muzir.kek.domain.Todo;
 import com.muzir.kek.domain.User;
+import com.muzir.kek.enums.DoneStatus;
 
 /**
  * @author erhun.baycelik
@@ -38,8 +39,8 @@ public class TodoServiceImplTest {
 
 	@Test
 	public void shouldVerifyRepositoryGetUserCall() {
-		todoServiceImpl.getUserTodos(user);
-		verify(todoRepository).findByUser(user);
+		todoServiceImpl.getUserTodosByIsDone(user, DoneStatus.DONE.getValue());
+		verify(todoRepository).findByUserAndIsDone(user, DoneStatus.DONE.getValue());
 	}
 
 }

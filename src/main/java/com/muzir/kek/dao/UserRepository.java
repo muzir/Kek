@@ -12,4 +12,6 @@ import com.muzir.kek.domain.User;
  */
 public interface UserRepository extends CrudRepository<User, Long> {
 	Optional<User> findByNameAndPasswordSha256(String name,String passwordSha256);
+
+	Optional<User> findByName(String userName);
 }

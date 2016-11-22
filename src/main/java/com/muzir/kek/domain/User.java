@@ -122,10 +122,10 @@ public class User {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", passwordSha256=" + passwordSha256
-				+ ", creationTs=" + creationTs + ", todos=" + todos + "]";
-	}
+	// @Override
+	// public String toString() {
+	// return "User [id=" + id + ", name=" + name + ", email=" + email + ", passwordSha256=" + passwordSha256
+	// + ", creationTs=" + creationTs + ", todos=" + todos.size() + "]";
+	// }
 
 }

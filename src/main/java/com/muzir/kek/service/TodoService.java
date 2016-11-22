@@ -10,6 +10,8 @@ import com.muzir.kek.domain.User;
  *
  */
 public interface TodoService {
-	List<Todo> getUserTodos(User user);
-	Todo saveTodo(Todo todo); 
+	List<Todo> getUserTodosByIsDone(User user,String isDone);
+	Todo saveTodo(Todo todo);
+	void updateTodosAsDone(String []markedTodoIds, User user);
+	void deleteMarkedAsDone(String deleteDoneId, User user); 
 }
