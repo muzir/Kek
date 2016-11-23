@@ -3,6 +3,8 @@ package com.muzir.kek.service.impl;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Optional;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +15,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.muzir.kek.dao.UserRepository;
 import com.muzir.kek.domain.User;
-import com.muzir.kek.service.impl.LoginServiceImpl;
 import com.muzir.kek.util.Hashy;
 
 /**
@@ -47,6 +48,14 @@ public class LoginServiceImplTest {
 	public void shouldGetUser() {
 		loginServiceImpl.getUser(userName, password);
 		verify(hashy).calculateHash(password);
+	}
+
+	@Test
+	public void shouldIsUserExist() {
+		Optional<User> optionalUser = Optional.of(new User());
+		when(userRepository.findByName(userName)).thenReturn(optionalUser);
+		loginServiceImpl.isUserExist(userName);
+		verify(userRepository).findByName(userName);
 	}
 
 	@Test
